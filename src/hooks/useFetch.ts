@@ -1,5 +1,5 @@
 'use client'
-import { DependencyList, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 interface FetchState<T> {
   data: T | null;
   loading: boolean;
