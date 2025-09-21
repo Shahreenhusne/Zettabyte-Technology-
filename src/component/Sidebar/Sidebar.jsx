@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import {  House, Menu } from 'lucide-react'
+import {  House, Menu, StickyNote, UsersRound } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link';
 
@@ -14,6 +14,32 @@ const menuItems = [
         icon: House,
         label: "Home",
         href: "/",
+      }
+      
+       
+     
+    ],
+  },
+  {
+    title: "Post",
+    items: [
+      {
+        icon: StickyNote,
+        label: "Posts",
+        href: "/posts",
+      }
+      
+       
+     
+    ],
+  },
+  {
+    title: "User",
+    items: [
+      {
+        icon: UsersRound,
+        label: "Users",
+        href: "/users",
       }
       
        
