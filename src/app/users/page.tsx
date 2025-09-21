@@ -2,7 +2,6 @@
 import useFetch from '@/hooks/useFetch'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Search } from 'lucide-react'
 import Table from '@/component/Table/Table'
 import Modal from '@/component/Model/Model'
 import Loading from '../loading'
@@ -20,8 +19,8 @@ type User = {
 const UserList = () => {
   const [simulateError, setSimulateError] = useState(false)
   const endpoint = simulateError ? 'https://jsonplaceholder.typicode.com/invalid-users' :'https://jsonplaceholder.typicode.com/users'
-    const { data: users = [], loading, error } = useFetch<any[]>(endpoint, [simulateError])
-  const [selectedUser, setSelectedUser] = useState<any | null>(null);
+    const { data: users = [], loading, error } = useFetch<User[]>(endpoint)
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   const columns = ['Name', 'Username', 'Email', 'Phone', 'Website']
 

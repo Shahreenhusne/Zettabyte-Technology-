@@ -6,11 +6,17 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Loading from '@/app/loading'
 import Error from '@/app/error'
+type Post = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
 
 export default function PostsPage() {
   const [simulateError, setSimulateError] = useState(false)
   const endpoint = simulateError ? 'https://jsonplaceholder.typicode.com/invalid-posts' : 'https://jsonplaceholder.typicode.com/posts'
-  const { data: posts = [], loading, error } = useFetch<any[]>(endpoint, [simulateError])
+  const { data: posts = [], loading, error } = useFetch<Post[]>(endpoint)
 
   return (
     <div>

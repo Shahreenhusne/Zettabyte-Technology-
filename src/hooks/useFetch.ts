@@ -1,7 +1,18 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { DependencyList, useEffect, useState } from 'react'
+interface FetchState<T> {
+  data: T | null;
+  loading: boolean;
+  error: string | null;
+}
+type Post = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
 
-export default function useFetch<T = any>(url: string | null, deps: any[] = []) {
+export default function useFetch<T = Post>(url: string | null): FetchState<T> {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -28,7 +39,7 @@ export default function useFetch<T = any>(url: string | null, deps: any[] = []) 
     return () => {
       cancelled = true
     }
-  }, [url, ...deps])
+  }, [url])
 
   return { data, loading, error }
 }

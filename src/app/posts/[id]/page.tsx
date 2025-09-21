@@ -7,7 +7,7 @@ import Card from '@/component/Card/Card'
 export default function PostDetail() {
   const pathname = usePathname()
   const id = pathname?.split('/')?.pop() || ''
-  const { data: post, loading, error } = useFetch(id ? `https://jsonplaceholder.typicode.com/posts/${id}` : null, [id])
+  const { data: post, loading, error } = useFetch(id ? `https://jsonplaceholder.typicode.com/posts/${id}` : null)
 
   return (
     <div>
